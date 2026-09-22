@@ -11,6 +11,7 @@ import android.os.Vibrator
 import android.os.VibratorManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
@@ -94,9 +95,9 @@ fun DigitalRadioApp() {
         )
     }
 
-    var isPlaying by remember { mutableStateOf(false) }
-    var isMuted by remember { mutableStateOf(false) }
-    var capturedImage by remember { mutableStateOf<Bitmap?>(null) }
+    var isPlaying by rememberSaveable { mutableStateOf(false) }
+    var isMuted by rememberSaveable { mutableStateOf(false) }
+    var capturedImage by rememberSaveable { mutableStateOf<Bitmap?>(null) }
 
     val cameraLauncher =
         rememberLauncherForActivityResult(
